@@ -1,0 +1,255 @@
+1: A basic inline footnote
+//- - - - - - - - -//
+That's some text with an inline footnote.^[And that's the footnote.]
+//- - - - - - - - -//
+<p>That's some text with an inline footnote.<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>And that's the footnote.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+//= = = = = = = = = = = = = = = = = = = = = = = =//
+
+2: An inline footnote may contain inline markup
+//- - - - - - - - -//
+Inline markup is parsed.^[*emphasis*, `code` and a [link](https://example.com/).]
+//- - - - - - - - -//
+<p>Inline markup is parsed.<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p><em>emphasis</em>, <code>code</code> and a <a href="https://example.com/">link</a>.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+//= = = = = = = = = = = = = = = = = = = = = = = =//
+
+3: Brackets may be nested, escaped or held in a code span
+//- - - - - - - - -//
+Nested^[like [this] one], escaped^[like this \] one] and in code^[like this `]` one].
+//- - - - - - - - -//
+<p>Nested<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>, escaped<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup> and in code<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>.</p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>like [this] one&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>like this ] one&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3">
+<p>like this <code>]</code> one&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+//= = = = = = = = = = = = = = = = = = = = = = = =//
+
+4: An inline footnote may span lines of a paragraph
+//- - - - - - - - -//
+An inline footnote may span^[more than
+one line] of a paragraph.
+//- - - - - - - - -//
+<p>An inline footnote may span<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> of a paragraph.</p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>more than
+one line&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+//= = = = = = = = = = = = = = = = = = = = = = = =//
+
+5: Inline and reference footnotes share one numbering
+//- - - - - - - - -//
+Inline^[first] and reference[^r] footnotes are numbered together^[third].
+
+[^r]: The reference footnote.
+//- - - - - - - - -//
+<p>Inline<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> and reference<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup> footnotes are numbered together<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>.</p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>first&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>The reference footnote.&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3">
+<p>third&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+//= = = = = = = = = = = = = = = = = = = = = = = =//
+
+6: An inline footnote may contain an inline footnote
+//- - - - - - - - -//
+An inline footnote may contain another one.^[The outer note.^[The inner note.]]
+//- - - - - - - - -//
+<p>An inline footnote may contain another one.<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>The outer note.<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>The inner note.&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+//= = = = = = = = = = = = = = = = = = = = = = = =//
+
+7: A reference footnote may contain an inline footnote
+//- - - - - - - - -//
+A reference footnote may contain an inline one.[^r]
+
+[^r]: The definition, with an inline note.^[The inline note.]
+//- - - - - - - - -//
+<p>A reference footnote may contain an inline one.<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>The definition, with an inline note.<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>The inline note.&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+//= = = = = = = = = = = = = = = = = = = = = = = =//
+
+8: An inline footnote may follow the reference definitions
+//- - - - - - - - -//
+[^a]: The first definition.
+[^b]: The second definition.
+
+A paragraph.
+
+Another paragraph, with an inline note.^[The inline note.]
+
+A paragraph referring to both definitions.[^a][^b]
+//- - - - - - - - -//
+<p>A paragraph.</p>
+<p>Another paragraph, with an inline note.<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></p>
+<p>A paragraph referring to both definitions.<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup><sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup></p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>The inline note.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>The first definition.&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3">
+<p>The second definition.&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+//= = = = = = = = = = = = = = = = = = = = = = = =//
+
+9: Inline footnotes in headings, block quotes and list items
+//- - - - - - - - -//
+# A heading^[A note on the heading.]
+
+> A block quote^[A note on the quote.]
+
+- A list item^[A note on the item.]
+//- - - - - - - - -//
+<h1>A heading<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></h1>
+<blockquote>
+<p>A block quote<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></p>
+</blockquote>
+<ul>
+<li>A list item<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup></li>
+</ul>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>A note on the heading.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>A note on the quote.&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3">
+<p>A note on the item.&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+//= = = = = = = = = = = = = = = = = = = = = = = =//
+
+10: An unclosed bracket is not an inline footnote
+//- - - - - - - - -//
+An unclosed ^[bracket is not an inline footnote.
+//- - - - - - - - -//
+<p>An unclosed ^[bracket is not an inline footnote.</p>
+//= = = = = = = = = = = = = = = = = = = = = = = =//
+
+11: An escaped caret is not an inline footnote
+//- - - - - - - - -//
+An escaped \^[caret] is not an inline footnote.
+//- - - - - - - - -//
+<p>An escaped ^[caret] is not an inline footnote.</p>
+//= = = = = = = = = = = = = = = = = = = = = = = =//
+
+12: A caret not followed by a bracket is not an inline footnote
+//- - - - - - - - -//
+A bare ^ caret and a caret before ^text are not inline footnotes.
+//- - - - - - - - -//
+<p>A bare ^ caret and a caret before ^text are not inline footnotes.</p>
+//= = = = = = = = = = = = = = = = = = = = = = = =//
+
+13: Inline footnotes are not parsed in code
+//- - - - - - - - -//
+Not in a code span: `^[not a footnote]`
+
+    ^[not a footnote]
+
+//- - - - - - - - -//
+<p>Not in a code span: <code>^[not a footnote]</code></p>
+<pre><code>^[not a footnote]
+</code></pre>
+//= = = = = = = = = = = = = = = = = = = = = = = =//
+
+14: An empty inline footnote
+//- - - - - - - - -//
+An empty inline footnote is still a footnote.^[]
+//- - - - - - - - -//
+<p>An empty inline footnote is still a footnote.<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+//= = = = = = = = = = = = = = = = = = = = = = = =//
+
+15: Unreferenced definitions are still dropped
+//- - - - - - - - -//
+An inline note^[The note.] and an unused definition.
+
+[^unused]: Never referenced.
+//- - - - - - - - -//
+<p>An inline note<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> and an unused definition.</p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>The note.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+//= = = = = = = = = = = = = = = = = = = = = = = =//
+
