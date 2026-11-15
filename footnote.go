@@ -212,8 +212,11 @@ var inlineFootnoteFindClosureOptions text.FindClosureOptions = text.FindClosureO
 }
 
 func (s *inlineFootnoteParser) Parse(parent gast.Node, block text.Reader, pc parser.Context) gast.Node {
-	line, _ := block.PeekLine()
+	line, seg := block.PeekLine()
 	if len(line) < 2 || line[0] != '^' || line[1] != '[' {
+		return nil
+	}
+	if !inlineCloses(block, pc, seg.Start+1-seg.Padding) {
 		return nil
 	}
 	block.Advance(2)
