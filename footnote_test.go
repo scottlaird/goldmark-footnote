@@ -1,6 +1,8 @@
 package footnote
 
 import (
+	"bytes"
+	"strings"
 	"testing"
 
 	"github.com/yuin/goldmark"
@@ -34,6 +36,30 @@ func TestInlineFootnote(t *testing.T) {
 		),
 	)
 	testutil.DoTestCaseFile(markdown, "_test/footnote_inline.txt", t, testutil.ParseCliCaseArg()...)
+}
+
+// Labels count toward CommonMark's 999-character link-label limit with the caret.
+func TestFootnoteLabelLimit(t *testing.T) {
+	markdown := goldmark.New(goldmark.WithExtensions(Footnote))
+	for _, tc := range []struct {
+		n    int
+		want bool
+	}{
+		{n: 1, want: true},
+		{n: 998, want: true},
+		{n: 999, want: false},
+		{n: 5000, want: false},
+	} {
+		label := strings.Repeat("a", tc.n)
+		src := "Text.[^" + label + "]\n\n[^" + label + "]: The note.\n"
+		var buf bytes.Buffer
+		if err := markdown.Convert([]byte(src), &buf); err != nil {
+			t.Fatalf("label length %d: %v", tc.n, err)
+		}
+		if got := strings.Contains(buf.String(), `class="footnote-ref"`); got != tc.want {
+			t.Errorf("label length %d: footnote = %v, want %v", tc.n, got, tc.want)
+		}
+	}
 }
 
 type footnoteID struct {
